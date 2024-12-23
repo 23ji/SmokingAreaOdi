@@ -8,13 +8,17 @@
 import UIKit
 import NMapsMap
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
 
+    let locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let naverMapView = NMFNaverMapView(frame: view.frame)
         view.addSubview(naverMapView)
+        
+        naverMapView.showLocationButton = true
     }
 
 }

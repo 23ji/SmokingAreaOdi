@@ -11,15 +11,24 @@ import NMapsMap
 class ViewController: UIViewController, CLLocationManagerDelegate {
 
     let locationManager = CLLocationManager()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // NaverMapView 생성 및 추가
         let naverMapView = NMFNaverMapView(frame: view.frame)
         view.addSubview(naverMapView)
         
+        // 위치 버튼 표시
         naverMapView.showLocationButton = true
-    }
 
+        // 첫 화면 위도와 경도 지정
+        let initialLocation = NMGLatLng(lat: 37.4979, lng: 127.0365)
+        // 카메라를 특정 위치로 지정
+        let cameraUpdate = NMFCameraUpdate(scrollTo: initialLocation)
+        // 카메라를 이동시키는 메서드
+        naverMapView.mapView.moveCamera(cameraUpdate)
+
+    }
 }
 

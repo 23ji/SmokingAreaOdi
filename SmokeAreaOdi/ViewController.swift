@@ -4,6 +4,7 @@ import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
 
+       
     // MARK: - Properties
     let locationManager = CLLocationManager()
     var naverMapView: NMFNaverMapView!
@@ -16,7 +17,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         setupNaverMapView()
         
         // 위치 권한 요청
-        requestLocationPermission()
+        //requestLocationPermission()
     }
     
     // MARK: - Setup Methods

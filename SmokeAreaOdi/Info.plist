@@ -8,6 +8,8 @@
 	<string>blwsp39dnd</string>
 	<key>IDEPreferLogStreaming</key>
 	<string>YES</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>앱 사용 중 사용자의 위치를 받습니다.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

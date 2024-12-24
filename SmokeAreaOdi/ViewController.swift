@@ -8,32 +8,42 @@
 import UIKit
 import NMapsMap
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController {
 
-    let locationManager = CLLocationManager()
+    // MARK: - Properties
+    private let locationManager = CLLocationManager()
 
+    // 초기 화면에 표시할 기본 위치 (나중에 사용자 위치로 대체하기)
+    private var defaultLocation: NMGLatLng {
+        return NMGLatLng(lat: 37.500920152198, lng: 127.03618231961) // 현재 하드코딩된 위치
+    }
+
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNaverMap()
+    }
 
-        // NaverMapView 생성 및 추가
-        let naverMapView = NMFNaverMapView(frame: view.frame)
+    // MARK: - Setup Methods
+    private func setupNaverMap() {
+        let naverMapView = NMFNaverMapView(frame: view.bounds)
         view.addSubview(naverMapView)
         
-        // 위치 버튼 표시
         naverMapView.showLocationButton = true
 
-        // 첫 화면 위도와 경도 지정
-        let initialLocation = NMGLatLng(lat: 37.500920152198, lng: 127.03618231961)
-        // 카메라를 특정 위치로 지정
-        let cameraUpdate = NMFCameraUpdate(scrollTo: initialLocation)
-        // 카메라를 이동시키는 메서드
-        naverMapView.mapView.moveCamera(cameraUpdate)
-        
-        // 마커 표시
-        let marker = NMFMarker()
-        marker.position = NMGLatLng(lat: 37.500920152198, lng: 127.03618231961)
-        marker.mapView = naverMapView.mapView
+        setInitialCamera(on: naverMapView)
+        addMarker(on: naverMapView)
+    }
 
+    private func setInitialCamera(on naverMapView: NMFNaverMapView) {
+        // 초기 화면 위치를 설정
+        let cameraUpdate = NMFCameraUpdate(scrollTo: defaultLocation)
+        naverMapView.mapView.moveCamera(cameraUpdate)
+    }
+
+    private func addMarker(on naverMapView: NMFNaverMapView) {
+        let marker = NMFMarker()
+        marker.position = defaultLocation // 하드코딩된 첫 위치
+        marker.mapView = naverMapView.mapView
     }
 }
-

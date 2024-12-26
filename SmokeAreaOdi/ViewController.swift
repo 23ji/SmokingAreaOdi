@@ -9,6 +9,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager() // 위치 관리자 객체
     @IBOutlet weak var naverMapView: NMFNaverMapView! // 스토리보드에서 연결한 NaverMapView
     
+    @IBOutlet weak var addMarkerButton: UIButton!
     
     
     // MARK: - Lifecycle

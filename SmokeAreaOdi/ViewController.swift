@@ -90,4 +90,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    @IBAction func addMarkerButtonTapped(_ sender: UIButton) {
+        print("마커 추가 버튼이 눌렸습니다.")
+    }
+    
 }

@@ -21,6 +21,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         // NaverMapView 설정
         setupNaverMapView()
+        addSmokingAreaMarkers()
     }
     
     // MARK: - Setup Methods
@@ -38,6 +39,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         marker.position = initialLocation
         marker.mapView = naverMapView.mapView
     }
+    
+    // MARK: - 초기 마커 불러오기
+    
+    private func addSmokingAreaMarkers() {
+           // SmokingAreaData.swift의 데이터를 사용해 마커 추가
+           for area in smokingAreas {
+               let marker = NMFMarker()
+               marker.position = NMGLatLng(lat: area.latitude, lng: area.longitude)
+               marker.captionText = area.name
+               marker.mapView = naverMapView.mapView
+           }
+       }
     
     // MARK: - Location Permission Methods
     private func requestLocationPermission() {
@@ -91,8 +104,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
+    
     @IBAction func addMarkerButtonTapped(_ sender: UIButton) {
-        print("마커 추가 버튼이 눌렸습니다.")
+        let center = naverMapView.mapView.cameraPosition.target
+            print("현재 지도 중심 좌표: \(center.lat), \(center.lng)")
     }
+    
     
 }

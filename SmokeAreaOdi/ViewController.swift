@@ -11,7 +11,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var currentMarker: NMFMarker?  // 현재 마커를 추적할 변수
     var isAddingMarker = false     // 마커 추가 상태 추적 변수
-    var isChecked = false  // 버튼 상태 추적 (체크됨/체크 안 됨)
+    var isChecked = false          // 버튼 상태 추적 (체크됨/체크 안 됨)
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -33,6 +33,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         naverMapView.showLocationButton = true
     }
     
+    // MARK: - 초기 마커 불러오기
     private func addSmokingAreaMarkers() {
         // SmokingAreaData.swift의 데이터를 사용해 마커 추가
         for area in smokingAreas {
@@ -43,63 +44,61 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    // MARK: - addMarkerButton 클릭 시 마커 생성
+    // MARK: - addMarkerButton 클릭 시 마커 생성 또는 제거
     @IBAction func addMarkerButtonTapped(_ sender: UIButton) {
-        isChecked.toggle()
-                
-                // 버튼 아이콘 업데이트
-                updateButtonIcon()
-                
-                // 아이콘 상태에 맞게 마커 추가
-                if isChecked {
-                    // 버튼이 체크됨 상태이면 마커 추가
-                    addMarker()
-                } else {
-                    // 버튼이 체크 안 됨 상태이면 마커 제거
-                    removeMarker()
-                }
+        isChecked.toggle()  // 버튼 상태를 반전시킴
+        
+        // 버튼 아이콘 업데이트
+        updateButtonIcon()
+        
+        // 상태에 맞게 마커 추가 또는 제거
+        if isChecked {
+            addMarker()  // 체크된 상태일 때 마커 추가
+        } else {
+            removeMarker()  // 체크되지 않은 상태일 때 마커 제거
+        }
     }
     
     // MARK: - 마커 추가
-        private func addMarker() {
-            let mapView = naverMapView.mapView
-            let center = mapView.cameraPosition.target
-            
-            // 마커가 없다면 새로 생성
-            if currentMarker == nil {
-                currentMarker = NMFMarker()
-                currentMarker?.position = center
-                currentMarker?.mapView = mapView
-                currentMarker?.captionText = "새로운 마커"
-                //currentMarker?.isDraggable = true
-            } else {
-                // 이미 마커가 있다면 위치만 업데이트
-                currentMarker?.position = center
-            }
+    private func addMarker() {
+        let mapView = naverMapView.mapView
+        let center = mapView.cameraPosition.target
+        
+        // 마커가 없다면 새로 생성
+        if currentMarker == nil {
+            currentMarker = NMFMarker()
+            currentMarker?.position = center
+            currentMarker?.mapView = mapView
+            currentMarker?.captionText = "새로운 마커"  // 기본 이름 설정
+        } else {
+            // 이미 마커가 있다면 위치만 업데이트
+            currentMarker?.position = center
         }
+    }
 
-        // MARK: - 마커 제거
-        private func removeMarker() {
-            if let marker = currentMarker {
-                marker.mapView = nil  // 마커 제거
-                currentMarker = nil  // 마커 변수 초기화
-            }
+    // MARK: - 마커 제거
+    private func removeMarker() {
+        if let marker = currentMarker {
+            marker.mapView = nil  // 마커 제거
+            currentMarker = nil  // 마커 변수 초기화
         }
+    }
     
+    // MARK: - 버튼 아이콘 업데이트
     private func updateButtonIcon() {
-           if isChecked {
-               // 체크된 상태: checkmark.circle.fill
-               addMarkerButton.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
-           } else {
-               // 체크 안 된 상태: circle
-               addMarkerButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
-           }
-       }
+        if isChecked {
+            // 버튼이 체크됨 상태일 때 아이콘을 "plus.circle.fill"로 변경
+            addMarkerButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
+        } else {
+            // 버튼이 체크되지 않은 상태일 때 아이콘을 "circle"로 변경
+            addMarkerButton.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
+        }
+    }
     
+    // MARK: - 마커 추가 시작 (추가 버튼이 눌린 상태)
     private func startMarkerAddition() {
         print("마커 추가 시작")
         
-     
         // 버튼을 완료 아이콘으로 변경
         addMarkerButton.setImage(UIImage(named: "complete_icon"), for: .normal)
         
@@ -125,6 +124,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         isAddingMarker = true
     }
     
+    // MARK: - 마커 추가 완료 (추가 후 버튼 상태 리셋)
     private func completeMarkerAddition() {
         print("마커 추가 완료")
         

@@ -6,6 +6,7 @@
 *.xcuserstate
 *.xcworkspace
 DerivedData/
+xcuserdata/
 
 # Cocoapods 관련 파일
 Pods/
@@ -14,3 +15,4 @@ Podfile.lock
 # 기타 캐시 파일
 *.swp
 *.swo
+

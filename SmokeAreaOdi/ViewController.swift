@@ -2,6 +2,7 @@ import UIKit
 import NMapsMap
 import CoreLocation
 
+
 class ViewController: UIViewController {
     // MARK: - Properties
     let locationManager = CLLocationManager()

@@ -59,8 +59,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="line.3.horizontal" catalog="system" title="목록"/>
+                                <connections>
+                                    <action selector="showSmokingAreaList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bkd-f0-uOI"/>
+                                </connections>
                             </button>
                         </barButtonItem>
+                        <centerItemGroups>
+                            <barButtonItemGroup customizationDisposition="fixed" id="Pm5-sP-pLh">
+                                <barButtonItems>
+                                    <barButtonItem systemItem="search" id="Pys-uX-wMA"/>
+                                </barButtonItems>
+                            </barButtonItemGroup>
+                        </centerItemGroups>
                     </navigationItem>
                     <connections>
                         <outlet property="addMarkerButton" destination="KyU-3L-QKQ" id="IzN-GD-2Ps"/>

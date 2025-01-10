@@ -1,0 +1,16 @@
+# macOS 관련 파일
+.DS_Store
+
+# Xcode 관련 파일
+*.xcuserdata
+*.xcuserstate
+*.xcworkspace
+DerivedData/
+
+# Cocoapods 관련 파일
+Pods/
+Podfile.lock
+
+# 기타 캐시 파일
+*.swp
+*.swo

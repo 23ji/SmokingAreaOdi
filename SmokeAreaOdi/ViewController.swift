@@ -137,4 +137,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // 상태를 변경하여 다시 추가 상태로 돌아가게 설정
         isAddingMarker = false
     }
+    
+    @IBAction func listButtonTapped(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let listVC = storyboard.instantiateViewController(withIdentifier: "ListViewController") as? ListViewController {
+                // 화면 전환
+                present(listVC, animated: true, completion: nil)
+                print("목록 버튼 눌림")
+            } else {
+                print("ListViewController를 찾을 수 없음")
+            }
+    }
 }

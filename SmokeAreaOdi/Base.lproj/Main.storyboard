@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,30 +37,28 @@
                                     <action selector="addMarkerButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eDV-UG-1Zx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofD-14-Hxc">
+                                <rect key="frame" x="30" y="79" width="53" height="22"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="목록" image="list.bullet" catalog="system">
+                                    <color key="titleColor" name="AccentColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="listButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="toN-np-4c1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="KyU-3L-QKQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="280" id="1d7-1k-j2r"/>
+                            <constraint firstItem="ofD-14-Hxc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="2HY-fY-6FU"/>
                             <constraint firstItem="KyU-3L-QKQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="620" id="4lS-XT-ogA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KyU-3L-QKQ" secondAttribute="bottom" constant="50" id="L3M-HQ-9nd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KyU-3L-QKQ" secondAttribute="trailing" constant="15" id="PrS-Eg-mfA"/>
+                            <constraint firstItem="ofD-14-Hxc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="faK-bq-tnb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="drR-Re-sUt">
-                        <barButtonItem key="leftBarButtonItem" id="SVK-Bq-OBL">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Gli-AO-EBY">
-                                <rect key="frame" x="16" y="5" width="80.666666666666671" height="34.333333333333336"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="line.3.horizontal" catalog="system" title="목록"/>
-                            </button>
-                            <connections>
-                                <action selector="listButtonTapped:" destination="BYZ-38-t0r" id="zlc-WT-TKp"/>
-                                <segue destination="BW4-CG-8Az" kind="presentation" id="5bS-0d-bl7"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
                         <outlet property="addMarkerButton" destination="KyU-3L-QKQ" id="IzN-GD-2Ps"/>
                         <outlet property="naverMapView" destination="Nda-cK-Y7j" id="ag1-a9-ubL"/>
@@ -70,24 +69,36 @@
             <point key="canvasLocation" x="1970.2290076335878" y="4.9295774647887329"/>
         </scene>
         <!--List View Controller-->
-        <scene sceneID="oF7-ol-5Ii">
+        <scene sceneID="0J6-7g-Tgy">
             <objects>
-                <viewController storyboardIdentifier="ListViewController" id="BW4-CG-8Az" customClass="ListViewController" customModule="SmokeAreaOdi" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hZe-BK-jBi">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                <viewController storyboardIdentifier="ListViewController" id="gTR-g6-fh4" customClass="ListViewController" customModule="SmokeAreaOdi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Y8S-7Q-hAu">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="TZ2-nQ-Dx5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbx-fI-yeP">
+                                <rect key="frame" x="175" y="416" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="o3O-LA-DKI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gfx-Lv-XH7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SrO-qT-JGm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2732" y="5"/>
+            <point key="canvasLocation" x="2724" y="5"/>
         </scene>
     </scenes>
     <resources>
-        <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
+        <image name="list.bullet" catalog="system" width="128" height="87"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

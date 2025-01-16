@@ -14,6 +14,7 @@
 		49288AB42D19450C00FF1E50 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 49288AB32D19450C00FF1E50 /* Base */; };
 		49288AB62D19450D00FF1E50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49288AB52D19450D00FF1E50 /* Assets.xcassets */; };
 		49288AB92D19450D00FF1E50 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 49288AB82D19450D00FF1E50 /* Base */; };
+		4961B4842D38F02000CCDD8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49288AB22D19450C00FF1E50 /* Main.storyboard */; };
 		49C806D02D27CE51002367C1 /* SmokingAreaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C806CF2D27CE51002367C1 /* SmokingAreaData.swift */; };
 /* End PBXBuildFile section */
 
@@ -157,6 +158,7 @@
 				49288AB62D19450D00FF1E50 /* Assets.xcassets in Resources */,
 				49288AB92D19450D00FF1E50 /* Base in Resources */,
 				49288AB42D19450C00FF1E50 /* Base in Resources */,
+				4961B4842D38F02000CCDD8C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

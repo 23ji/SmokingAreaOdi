@@ -45,7 +45,10 @@ class ViewController: UIViewController {
     }
     
     private func setupView(){
-        
+        // 흰색 테두리 없애기
+        searchBar.searchTextField.borderStyle = .none
+        searchBar.layer.cornerRadius = 15
+        searchBar.clipsToBounds = true
     }
     
     

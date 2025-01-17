@@ -17,6 +17,7 @@
 		4961B4842D38F02000CCDD8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49288AB22D19450C00FF1E50 /* Main.storyboard */; };
 		4961B4862D38F35500CCDD8C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4961B4852D38F35500CCDD8C /* ListViewController.swift */; };
 		49C806D02D27CE51002367C1 /* SmokingAreaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C806CF2D27CE51002367C1 /* SmokingAreaData.swift */; };
+		A7BC2B6B2D3161E100BD910F /* MarkerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BC2B6A2D3161E000BD910F /* MarkerManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		4961B4852D38F35500CCDD8C /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		49C806CF2D27CE51002367C1 /* SmokingAreaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokingAreaData.swift; sourceTree = "<group>"; };
 		9B1FE8882A69C893A52AE7BC /* Pods_SmokeAreaOdi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmokeAreaOdi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7BC2B6A2D3161E000BD910F /* MarkerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerManager.swift; sourceTree = "<group>"; };
 		D93EE64BF9C68B09854EFEB5 /* Pods-SmokeAreaOdi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmokeAreaOdi.release.xcconfig"; path = "Target Support Files/Pods-SmokeAreaOdi/Pods-SmokeAreaOdi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49288AB12D19450C00FF1E50 /* ViewController.swift in Sources */,
+				A7BC2B6B2D3161E100BD910F /* MarkerManager.swift in Sources */,
 				49288AAD2D19450C00FF1E50 /* AppDelegate.swift in Sources */,
 				49288AAF2D19450C00FF1E50 /* SceneDelegate.swift in Sources */,
 				4961B4862D38F35500CCDD8C /* ListViewController.swift in Sources */,

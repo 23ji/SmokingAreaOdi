@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Image references" minToolsVersion="12.0"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,6 +24,13 @@
                                 <viewLayoutGuide key="safeArea" id="eFy-Yo-0AU"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <searchBar contentMode="redraw" placeholder="건물명, 지하철역 등 위치 검색" translatesAutoresizingMaskIntoConstraints="NO" id="haD-Zi-fDd">
+                                <rect key="frame" x="15" y="59" width="363" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="3to-1p-4th"/>
+                                </connections>
+                            </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KyU-3L-QKQ">
                                 <rect key="frame" x="280" y="679" width="98" height="89"/>
                                 <color key="tintColor" systemColor="systemYellowColor"/>
@@ -37,16 +43,6 @@
                                     <action selector="addMarkerButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eDV-UG-1Zx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofD-14-Hxc">
-                                <rect key="frame" x="30" y="79" width="53" height="22"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="목록" image="list.bullet" catalog="system">
-                                    <color key="titleColor" name="AccentColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="listButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="toN-np-4c1"/>
-                                </connections>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="mappin.and.ellipse" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5c0-s5-beN" userLabel="markerPin">
                                 <rect key="frame" x="168" y="395" width="56" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -57,17 +53,19 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="KyU-3L-QKQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="280" id="1d7-1k-j2r"/>
-                            <constraint firstItem="ofD-14-Hxc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="2HY-fY-6FU"/>
                             <constraint firstItem="KyU-3L-QKQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="620" id="4lS-XT-ogA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="haD-Zi-fDd" secondAttribute="trailing" constant="15" id="E1P-le-PzY"/>
+                            <constraint firstItem="haD-Zi-fDd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Fah-Fd-hvK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KyU-3L-QKQ" secondAttribute="bottom" constant="50" id="L3M-HQ-9nd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KyU-3L-QKQ" secondAttribute="trailing" constant="15" id="PrS-Eg-mfA"/>
-                            <constraint firstItem="ofD-14-Hxc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="faK-bq-tnb"/>
+                            <constraint firstItem="haD-Zi-fDd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="jpU-Nn-6pj"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="addMarkerButton" destination="KyU-3L-QKQ" id="IzN-GD-2Ps"/>
                         <outlet property="markerPin" destination="5c0-s5-beN" id="Uen-Vs-WSY"/>
                         <outlet property="naverMapView" destination="Nda-cK-Y7j" id="ag1-a9-ubL"/>
+                        <outlet property="searchBar" destination="haD-Zi-fDd" id="pVE-JS-VKk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -100,12 +98,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="list.bullet" catalog="system" width="128" height="87"/>
         <image name="mappin.and.ellipse" catalog="system" width="110" height="128"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

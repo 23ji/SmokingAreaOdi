@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var naverMapView: NMFNaverMapView!
     @IBOutlet weak var addMarkerButton: UIButton!
     @IBOutlet weak var markerPin: UIImageView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var isChecked = false  // 버튼 상태
 
@@ -19,6 +20,7 @@ class ViewController: UIViewController {
         
         setupNaverMapView()
         addSmokingAreaMarkers()
+        setupView()
         
         // 마커 매니저 초기화
         markerManager = MarkerManager(mapView: naverMapView.mapView)
@@ -42,6 +44,10 @@ class ViewController: UIViewController {
         }
     }
     
+    private func setupView(){
+        
+    }
+    
     
     @IBAction func addMarkerButtonTapped(_ sender: UIButton) {
         isChecked.toggle()
@@ -60,13 +66,5 @@ class ViewController: UIViewController {
         }
 
     
-    @IBAction func listButtonTapped(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil) // "Main"은 스토리보드 이름
-            if let listVC = storyboard.instantiateViewController(withIdentifier: "ListViewController") as? ListViewController {
-                navigationController?.pushViewController(listVC, animated: true)
-                print("목록 버튼 눌림")
-            } else {
-                print("ListViewController를 찾을 수 없음")
-            }
-    }
+    
 }

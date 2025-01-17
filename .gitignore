@@ -11,6 +11,7 @@ xcuserdata/
 # Cocoapods 관련 파일
 Pods/
 Podfile.lock
+Manifest.lock
 
 # 기타 캐시 파일
 *.swp

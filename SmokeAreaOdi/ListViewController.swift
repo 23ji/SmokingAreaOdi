@@ -11,7 +11,7 @@ class ListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //title = "목록"
     }
 
 }

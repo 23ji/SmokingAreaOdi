@@ -47,6 +47,11 @@
                                     <action selector="listButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="toN-np-4c1"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="mappin.and.ellipse" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5c0-s5-beN" userLabel="markerPin">
+                                <rect key="frame" x="168" y="395" width="56" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -61,6 +66,7 @@
                     </view>
                     <connections>
                         <outlet property="addMarkerButton" destination="KyU-3L-QKQ" id="IzN-GD-2Ps"/>
+                        <outlet property="markerPin" destination="5c0-s5-beN" id="Uen-Vs-WSY"/>
                         <outlet property="naverMapView" destination="Nda-cK-Y7j" id="ag1-a9-ubL"/>
                     </connections>
                 </viewController>
@@ -95,6 +101,7 @@
     </scenes>
     <resources>
         <image name="list.bullet" catalog="system" width="128" height="87"/>
+        <image name="mappin.and.ellipse" catalog="system" width="110" height="128"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

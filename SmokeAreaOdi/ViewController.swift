@@ -45,21 +45,20 @@ class ViewController: UIViewController {
     
     @IBAction func addMarkerButtonTapped(_ sender: UIButton) {
         isChecked.toggle()
-        if isChecked {
-            markerPin.isHidden = false
             
-            addMarkerButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
-
-        } else {
-            let center = naverMapView.mapView.cameraPosition.target
-            markerManager?.addMarker(at: center)
-            
-            markerPin.isHidden = true
-            
-            addMarkerButton.setImage(UIImage(systemName: "plus.circle.fill"), for: .normal)
-
+            if isChecked {
+                
+                // 마커 추가 및 핀 이미지 표시
+                markerPin.isHidden = false // 핀 이미지 보이게 설정
+            } else {
+                // 마커 제거 및 핀 이미지 숨김
+                //markerManager?.removeMarker()
+                let center = naverMapView.mapView.cameraPosition.target
+                markerManager?.addMarker(at: center)
+                markerPin.isHidden = true // 핀 이미지 숨기기
+            }
         }
-    }
+
     
     @IBAction func listButtonTapped(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil) // "Main"은 스토리보드 이름

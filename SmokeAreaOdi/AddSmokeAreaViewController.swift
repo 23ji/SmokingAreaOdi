@@ -9,10 +9,20 @@ import UIKit
 
 class AddSmokeAreaViewController: UIViewController {
 
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        setUp()
+        
+    }
+    
+    private func setUp() {
+        //서치바 디자인
+        searchBar.searchTextField.borderStyle = .none
+        searchBar.layer.cornerRadius = 15
+        searchBar.clipsToBounds = true
     }
     
 

@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     
     var isChecked = false  // 버튼 상태
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,21 +53,25 @@ class ViewController: UIViewController {
     
     
     @IBAction func addMarkerButtonTapped(_ sender: UIButton) {
-        isChecked.toggle()
-            
-            if isChecked {
-                
-                // 마커 추가 및 핀 이미지 표시
-                markerPin.isHidden = false // 핀 이미지 보이게 설정
-            } else {
-                // 마커 제거 및 핀 이미지 숨김
-                //markerManager?.removeMarker()
-                let center = naverMapView.mapView.cameraPosition.target
-                markerManager?.addMarker(at: center)
-                markerPin.isHidden = true // 핀 이미지 숨기기
-            }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let addVC = storyboard.instantiateViewController(withIdentifier: "AddSmokeAreaViewController") as? AddSmokeAreaViewController {
+            addVC.modalPresentationStyle = .fullScreen // 화면 전체로 표시 (선택 사항)
+            present(addVC, animated: true, completion: nil)
+        } else {
+            print("AddSmokeAreaViewController를 찾을 수 없음")
         }
-
-    
-    
+    }
 }
+
+//            if isChecked {
+//                
+//                // 마커 추가 및 핀 이미지 표시
+//                markerPin.isHidden = false // 핀 이미지 보이게 설정
+//            } else {
+//                // 마커 제거 및 핀 이미지 숨김
+//                //markerManager?.removeMarker()
+//                let center = naverMapView.mapView.cameraPosition.target
+//                markerManager?.addMarker(at: center)
+//                markerPin.isHidden = true // 핀 이미지 숨기기
+//            }
+

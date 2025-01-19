@@ -57,6 +57,11 @@ class AddSmokeAreaViewController: UIViewController {
         // 새로운 흡연구역 데이터 생성
         let newSmokingArea = SmokingArea(name: title, latitude: currentCenter.lat, longitude: currentCenter.lng, description: description ?? "")
 
+        // 새로운 흡연구역을 SmokingAreaData에 추가
+        var updatedSmokingAreas = smokingAreas
+        updatedSmokingAreas.append(newSmokingArea)
+        smokingAreas = updatedSmokingAreas
+
         // NotificationCenter로 데이터 전달
         NotificationCenter.default.post(name: .smokingAreaAdded, object: nil, userInfo: ["area": newSmokingArea])
 

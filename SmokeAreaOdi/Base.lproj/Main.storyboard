@@ -54,11 +54,6 @@
                                     <action selector="addMarkerButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eDV-UG-1Zx"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="mappin.and.ellipse" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5c0-s5-beN" userLabel="markerPin">
-                                <rect key="frame" x="168" y="395" width="56" height="61"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -78,7 +73,6 @@
                     </view>
                     <connections>
                         <outlet property="addMarkerButton" destination="KyU-3L-QKQ" id="IzN-GD-2Ps"/>
-                        <outlet property="markerPin" destination="5c0-s5-beN" id="Uen-Vs-WSY"/>
                         <outlet property="naverMapView" destination="Nda-cK-Y7j" id="ag1-a9-ubL"/>
                         <outlet property="searchBar" destination="haD-Zi-fDd" id="pVE-JS-VKk"/>
                     </connections>
@@ -124,6 +118,10 @@
                                 <viewLayoutGuide key="safeArea" id="kBz-GO-VNd"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="marker_Pin" translatesAutoresizingMaskIntoConstraints="NO" id="M1H-2m-A1P">
+                                <rect key="frame" x="172" y="394" width="48" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8Rh-Zf-oCQ">
                                 <rect key="frame" x="15" y="109" width="363" height="84"/>
                                 <subviews>
@@ -206,6 +204,9 @@
                                 <rect key="frame" x="10" y="64.666666666666671" width="39.666666666666664" height="34.333333333333329"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system"/>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="Opl-jf-bf8" eventType="touchUpInside" id="05J-ax-KFO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="T1k-1a-Vbv"/>
@@ -231,6 +232,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="UsU-2M-aZj" id="smj-E6-Fi8"/>
+                        <outlet property="naverMapView" destination="RX0-73-XTt" id="6NU-ag-rbt"/>
                         <outlet property="searchBar" destination="NIL-qV-But" id="nyq-oz-OO5"/>
                     </connections>
                 </viewController>
@@ -241,7 +244,7 @@
     </scenes>
     <resources>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
-        <image name="mappin.and.ellipse" catalog="system" width="110" height="128"/>
+        <image name="marker_Pin" width="78" height="102"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>

@@ -1,39 +1,43 @@
-//
-//  AddSmokeAreaViewController.swift
-//  SmokeAreaOdi
-//
-//  Created by 이상지 on 1/19/25.
-//
-
 import UIKit
+import NMapsMap
 
 class AddSmokeAreaViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
-    
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var naverMapView: NMFNaverMapView!
+
+    private var centerMarker: NMFMarker?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setUp()
-        
+        setupNaverMapView()
+        //setupCenterMarker()
     }
-    
-    private func setUp() {
-        //서치바 디자인
-        searchBar.searchTextField.borderStyle = .none
-        searchBar.layer.cornerRadius = 15
-        searchBar.clipsToBounds = true
+
+    private func setupNaverMapView() {
+        // 지도 초기 위치 설정
+        let initialLocation = NMGLatLng(lat: 37.500920152198, lng: 127.03618231961)
+        let cameraUpdate = NMFCameraUpdate(scrollTo: initialLocation)
+        naverMapView.mapView.moveCamera(cameraUpdate)
+        naverMapView.showLocationButton = true
     }
-    
 
-    /*
-    // MARK: - Navigation
+//    private func setupCenterMarker() {
+//        // 지도 중심 위치에 마커 추가
+//        centerMarker = NMFMarker()
+//        centerMarker?.position = naverMapView.mapView.cameraPosition.target
+//        centerMarker?.mapView = naverMapView.mapView // 네이버 지도에 마커 추가
+//        centerMarker?.iconImage = NMF_MARKER_IMAGE_BLACK // 네이버 기본 마커 이미지 사용
+//    }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
-    */
 
+//    @IBAction func confirmLocationTapped(_ sender: UIButton) {
+//        // 현재 지도 중심의 위치를 가져옴
+//        let currentCenter = naverMapView.mapView.cameraPosition.target
+//        print("선택된 위치: \(currentCenter.lat), \(currentCenter.lng)")
+//    }
 }

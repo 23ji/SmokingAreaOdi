@@ -74,4 +74,14 @@ class ViewController: UIViewController {
             print("AddSmokeAreaViewController를 찾을 수 없음")
         }
     }
+    
+    @IBAction func showListButtonTapped(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let listVC = storyboard.instantiateViewController(withIdentifier: "ListViewController") as? ListViewController {
+            listVC.modalPresentationStyle = .fullScreen  // 화면 전체로 표시
+            present(listVC, animated: true, completion: nil)
+        }
+    }
+
+
 }
